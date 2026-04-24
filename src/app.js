@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-// const connectDB = require('./config/database'); // Uncomment when ready
+const connectDB = require('./config/database');
 
 const app = express();
 
 // Connect to the database
-// connectDB();
+connectDB();
 
 // Global Middlewares
 app.use(cors());
@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
 });
 
 // Mount Routes
-// app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
 
 module.exports = app;
